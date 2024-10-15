@@ -7,5 +7,6 @@ This package requires python >= 3.11 and PFAC >= 1.1.5. Default parameters for t
 
 FACOF includes a wizard that allows direct use of all its functionalities directly from the terminal. It can be open by calling this package folder. The available flags are,
 
-- `-l ELEM NELEC`: compute atomic level structure by specifying the element (ELEM) and number of bound electrons (NELEC).
-- `-t ELEM NELEC`: compute atomic transitions and level structure by specifying the element (ELEM) and number of bound electrons (NELEC).
+- `-l -lev ELEM NELEC`: compute atomic level structure by specifying the element (ELEM) and number of bound electrons (NELEC).
+- `-tr ELEM NELEC`: compute atomic transition rates by specifying the element (ELEM) and number of bound electrons (NELEC).
+- `-rr ELEM NELEC`: compute radiative recombination and photoionization cross sections by specifying the element (ELEM) and number of bound electrons (NELEC).
