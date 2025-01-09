@@ -1,4 +1,5 @@
 import argparse
+import os.path
 
 from compute import compute_lev, compute_tr, compute_rr
 
@@ -33,17 +34,11 @@ PARSER_ARGS = [
 def get_facof_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="FACOF v(1.0.0)",
-        description="FAC on terminal framework.",
+        description=f"FAC on terminal framework (in {os.path.dirname(os.path.realpath(__file__))}).",
     )
 
     for args in PARSER_ARGS:
         flag, nargs, type, metavar, help, _ = args
-        parser.add_argument(
-            *flag,
-            nargs=nargs,
-            type=type,
-            metavar=metavar,
-            help=help
-        )
+        parser.add_argument(*flag, nargs=nargs, type=type, metavar=metavar, help=help)
 
     return parser
