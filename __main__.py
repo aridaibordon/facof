@@ -3,11 +3,11 @@ import config
 import wizard
 
 
-from parser import PARSER_ARGS, get_facof_parser
+from parser import PARSER_ARGS, get_parser
 
 
 def main() -> None:
-    parser = get_facof_parser()
+    parser = get_parser()
     args = vars(parser.parse_args())
 
     # run default wizard if not args are provided
@@ -24,7 +24,7 @@ def main() -> None:
         elem, nelec = kargs
 
         flag_cmd = flag_cmd_dict[key]
-        flag_cmd(elem, int(nelec), config.uta_flag, config.ci_flag)
+        flag_cmd(elem, int(nelec), config.UTA_FLAG, config.CI_FLAG)
 
 
 if __name__ == "__main__":

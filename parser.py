@@ -1,7 +1,7 @@
 import argparse
 import os.path
 
-from compute import compute_lev, compute_tr, compute_rr
+from compute import compute_lev, compute_tr, compute_rr, compute_ai
 
 PARSER_ARGS = [
     (
@@ -28,10 +28,18 @@ PARSER_ARGS = [
         "compute atomic RR and PI cross-section",
         compute_rr,
     ),
+    (
+        ["-ai"],
+        2,
+        str,
+        ("ELEM", "N_ELEC"),
+        "compute autoionization rates",
+        compute_ai,
+    ),
 ]
 
 
-def get_facof_parser() -> argparse.ArgumentParser:
+def get_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="FACOF v(1.0.0)",
         description=f"FAC on terminal framework (in {os.path.dirname(os.path.realpath(__file__))}).",

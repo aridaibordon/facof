@@ -22,7 +22,7 @@ def get_config_from_laviez(fac_susbhell: str) -> list[str]:
 
 
 def get_config_from_nrel(fac_subshell: str):
-    if not "[" in fac_subshell:
+    if "[" not in fac_subshell:
         return [fac_subshell]
 
     n = int(fac_subshell[: fac_subshell.index("[")])
@@ -59,16 +59,15 @@ def get_nrel_config_list(fac_state: str) -> list[str]:
     return nrel_config_list
 
 
-def get_ion_states_label_list(nion: int) -> list[str]:
-    if nion == 0:
+def get_ion_states_config_list(nelec: int) -> list[str]:
+    if nelec == 0:
         # label for naked atom
-        return ["naked"]
+        return [(" ", "naked")]
 
-    ion_data = read_ion_data(nion)
+    ion_data = read_ion_data(nelec)
 
     nrel_config_list = []
-    for fac_state in ion_data:
-        nrel_config = get_nrel_config_list(fac_state)
-        nrel_config_list.extend(nrel_config)
+    for ind, fac_state in enumerate(ion_data):
+        nrel_config_list.append((fac_state, f"{nelec:02d}/{ind:02d}"))
 
     return nrel_config_list
